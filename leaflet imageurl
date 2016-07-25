@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>loading raster images onto leaflet powered maps</title>
+
+	<meta charset="utf-8" />
+	
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+	</head>
+<body>
+
+<div id='map' style='width:1000px;height: 600px'></div>
+
+<script>
+
+	var map = L.map('map', {center: [4.869, 7.123],	zoom: 13});
+
+mapLink = 
+'<a href="http://openstreetmap.org">openstreetmap</a>,'+
+	'<a href="http://mapsnigeriainitiative.wordpress.com">mapsnigeriainitiative</a>';
+
+
+L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
+{attribution: ' Map data &copy; ' + mapLink,
+maxZoom: 18
+}).addTo(map);
+
+
+var imageUrl = "http://cdn.rawgit.com/mayotunde/demonstration/master/map.jpg",
+    imageBounds = [[4.912, 7.041], [4.819, 7.174]];
+L.imageOverlay(imageUrl, imageBounds).addTo(map);
+
+</script>
+<div id='logo' style='position:absolute;bottom:30px;left:20px;float:right';>
+<img src="https://lh3.googleusercontent.com/jY9fWF3HjY1NPeluF6LQDyDRL2zqGevA_IW0jKu5Z6GqsiSw6mHE_oCNDvGV_PnL_G6JFZKzZDHNqSHd6wS9F12GHCGpPiDU2yF2RK3ELBYotYSNMPOVUnyyobGCGKDA1Rc3Xga6vaxbx0MN3YR2WVvwW6avdpXMUZdZNAtBVPlV0famTCd-dXeHDmr53KNPQQNWLLM5Wgp3rUYvxbINhvTCnMlaUeHrp0Hab5BJaTB6SbabPpnPNPT1X3uvz6nQs3PgSbbG2pevw4Yn91DQI_kTuIcf7fmS39MdOm2LSFpB0wHgEvvlloLJfpXw0TvGjBpgZFeA8pIdmeoAr6q4aonVVkydr3WMN8v6DJ2DzFcfgYUHalxrDPoJTiZoh0U-qNTeUxc-kpXca8xlmO2EpZg4_SFbdZUU6ZNgQBiJoP99IwZ03Qzvp_0bdEbmigdzY8RLwP5riKHgotnXY4E71qS8yzlD8JvK4bK5ojBzvZvXlnfXDo0y82a8LJCHqjxbK3RbKDYZybb72d31gc-bpx6m1sKT24RnHZp2hq9FVbs=w80-h50-no" /><br>
+<small><a href="http://mapsnigeriainitiative.wordpress.com">mapsNI</a><small>
+</div>
+</body>
+</html>
